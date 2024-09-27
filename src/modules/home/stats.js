@@ -16,7 +16,7 @@ const Stats = () => {
         <GradualSpacingText
           text={"Technical Stats"}
           className={
-            "font-display text-center text-4xl font-bold tracking-[-0.1em] text-black md:text-7xl md:leading-[5rem]"
+            "font-display text-center text-4xl font-bold tracking-[-0.1em] md:text-7xl md:leading-[5rem]"
           }
         />
         <GradualSpacingText

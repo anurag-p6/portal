@@ -17,15 +17,13 @@ export function UserAuthForm({ className, isLogin, ...props }) {
   const [isLoading, setIsLoading] = React.useState(false);
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const [formData, setFormData] = React.useState({
-    erpID: 111111,
-    erpPassword: "111111",
-  });
+  const [formData, setFormData] = React.useState({});
   const router = useRouter();
 
   async function onSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
+    formData.erpID = parseInt(formData.erpID)
     const loginStatus = await handleLogin(formData, dispatch);
     setIsLoading(false);
     if (loginStatus) router.push("/");
@@ -50,12 +48,12 @@ export function UserAuthForm({ className, isLogin, ...props }) {
                     </Label>
                     <Input
                       id="erpID"
-                      placeholder="000000"
+                      placeholder="Enter your ERP-ID"
                       value={formData.erpID}
                       onChange={(e) =>
                         setFormData({
                           ...formData,
-                          erpID: parseInt(e.target.value) || 0,
+                          erpID:e.target.value,
                         })
                       }
                       type="text"
